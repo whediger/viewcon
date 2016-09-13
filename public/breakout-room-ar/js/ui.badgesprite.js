@@ -4,12 +4,12 @@ var UI = UI || {}
 //              Constructor                                                     //
 //////////////////////////////////////////////////////////////////////////////////
 
-/**
- * create a plane on which we map 2d text
- */
- 
+
+// create a plane on which we map 2d text
+
+
 UI.BadgeSprite = function() {
-    var width = 595 //remove: set to dementions of 8.5 inch paper. was 512, changes px per canvas size????
+    var width = 596 //remove: set to dementions of 8.5 inch paper. was 512, changes px per canvas size????
     var height = 842 //remove: set to dementions of 11 inch paper. was 256
 
     var canvas = document.createElement('canvas')
@@ -36,15 +36,15 @@ UI.BadgeSprite = function() {
     });
     THREE.Sprite.call(this, material)
 
-    this.scale.set(3.25, 4, 1) //remove: was 2,1,1 changes size of canvas relative to scan image
+    this.scale.set(3.25, 4, 1) //remove: (2,1,1) changes size of canvas relative to scan image
 }
 
 UI.BadgeSprite.prototype = Object.create(THREE.Sprite.prototype);
 
-/**
- * Draw the cartouche
- * @param  {Object} params [description]
- */
+
+// Draw the cartouche
+// @param  {Object} params [description]
+
 UI.BadgeSprite.prototype.draw = function(params) {
     var context = this.context
     var canvas = this.canvas
@@ -57,23 +57,23 @@ UI.BadgeSprite.prototype.draw = function(params) {
 
     // Draw white background
     var cornerRadius = 10;
-    context.fillStyle = 'rgba(255,255,255, .95)';
+    context.fillStyle = 'rgba(250,250,250, .95)';
     context.fillRect(0 + (cornerRadius / 2), 0 + (cornerRadius / 2), canvas.width - cornerRadius, canvas.height - cornerRadius);
 
     // Draw background outlining
     context.lineJoin = 'round';
-    context.lineWidth = cornerRadius;
+    context.lineWidth = 5;
     context.strokeStyle = '#3D3D3B';
     context.strokeRect(0 + (cornerRadius / 2), 0 + (cornerRadius / 2), canvas.width - cornerRadius, canvas.height - cornerRadius);
 
     // Draw avatar
     var avatarObject = new Image();
     avatarObject.width = 200;
-    avatarObject.height = 200;
+    avatarObject.height = 50;
     avatarObject.style.width = '200px';
-    avatarObject.style.height = '200px';
+    avatarObject.style.height = '50px';
     avatarObject.onload = function() {
-        context.drawImage(avatarObject, 10, 10, 200, 200);
+        context.drawImage(avatarObject, 200, 20, 200, 50);
         // make the texture as .needsUpdate
         texture.needsUpdate = true;
     };
@@ -81,18 +81,18 @@ UI.BadgeSprite.prototype.draw = function(params) {
     avatarObject.crossOrigin = 'Anonymous';
 
     // draw avatar outlining
-    context.rect(10, 10, 200, 200);
-    context.lineWidth = 20;
-    context.strokeStyle = '#1054B5';
-    context.stroke();
+    // context.rect(10, 10, 200, 50);
+    // context.lineWidth = 10;
+    // context.strokeStyle = '#F7901E';
+    // context.stroke();
 
     // Write First Name
-    writeText(params.firstName, 250, 50, 35, 'normal');
+    writeText(params.firstEvent, 30, 120, 20, 'normal');
     // write Last Name
-    writeText(params.lastName, 250, 110, 45, 'bold');
+    writeText(params.secondEvent, 30, 160, 20, 'normal');
 
     // Write role label
-    writeText(params.role, 270, 215, 50, 'normal');
+    writeText(params.role, 270, 215, 35, 'bold');
 
     // Draw role icon
     var iconObject = new Image();
@@ -107,13 +107,13 @@ UI.BadgeSprite.prototype.draw = function(params) {
         texture.needsUpdate = true;
     }
     if (params.role.toLowerCase() === 'developer') {
-        iconObject.src = '/examples/breakout-room-ar/role-icons/developer.png';
+        iconObject.src = '/breakout-room-ar/role-icons/developer.png';
     } else if (params.role.toLowerCase() === 'designer') {
-        iconObject.src = '/examples/breakout-room-ar/role-icons/designer.png';
+        iconObject.src = '/breakout-room-ar/role-icons/designer.png';
     } else if (params.role.toLowerCase() === 'industry') {
-        iconObject.src = '/examples/breakout-room-ar/role-icons/industry.png';
+        iconObject.src = '/breakout-room-ar/role-icons/industry.png';
     } else {
-        iconObject.src = '/examples/breakout-room-ar/role-icons/other.png';
+        iconObject.src = '/breakout-room-ar/role-icons/other.png';
     }
 
     // restore context
@@ -124,13 +124,15 @@ UI.BadgeSprite.prototype.draw = function(params) {
 
     //return //remove: if no bugs detected in testing
 
+
     function writeText(text, positionX, positionY, size, weight) {
+
         context.font = weight + ' ' + size + 'px Arial';
 
         context.fillStyle = '#000';
-        context.fillText(text, positionX + 3, positionY + 3);
+        context.fillText(text, positionX + 1, positionY + 1);
 
-        context.fillStyle = '#1054B5';
+        context.fillStyle = '#333333';
         context.fillText(text, positionX, positionY);
     }
 }
