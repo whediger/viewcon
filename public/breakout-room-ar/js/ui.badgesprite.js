@@ -86,13 +86,49 @@ UI.BadgeSprite.prototype.draw = function(params) {
     // context.strokeStyle = '#F7901E';
     // context.stroke();
 
-    // Write First Name
+    //----------------------------------
+    var width = 550;//596
+    function wrapText(context, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+
+        for(var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          var metrics = context.measureText(testLine);
+          var testWidth = metrics.width;
+          if (testWidth > maxWidth && n > 0) {
+            writeText(line, (x+15), y, 15, 'normal');
+            line = words[n] + ' ';
+            y += lineHeight;
+          }
+          else {
+            line = testLine;
+          }
+        }
+        writeText(line, (x+15), y, 15, 'normal');
+      }
+    //var x for text wrapText function
+    var x = (width - 500) / 2;
+
+    // Write firstEvent
     writeText(params.firstEvent, 30, 120, 20, 'normal');
-    // write Last Name
+    // write secondEvent
     writeText(params.secondEvent, 30, 160, 20, 'normal');
+    // write thirdEvent
+    writeText(params.thirdEvent, 30, 200, 20, 'normal');
+    // write thirdDescription
+    wrapText(context, params.thirdDescription, x, 230, width, 25);
+    // write fourthEvent
+    writeText(params.fourthEvent, 30, 300, 20, 'normal');
+    // write fourthDescription
+    wrapText(context, params.fourthDescription, x, 330, width, 25);
+    // write fifthEvent
+    writeText(params.fifthEvent, 30, 420, 20, 'normal');
+    // write fifthDescription
+    wrapText(context, params.fifthDescription, x, 450, width, 25);
 
     // Write role label
-    writeText(params.role, 270, 215, 35, 'bold');
+    //writeText(params.role, 270, 215, 35, 'bold');
 
     // Draw role icon
     var iconObject = new Image();
@@ -107,13 +143,13 @@ UI.BadgeSprite.prototype.draw = function(params) {
         texture.needsUpdate = true;
     }
     if (params.role.toLowerCase() === 'developer') {
-        iconObject.src = '/breakout-room-ar/role-icons/developer.png';
+        iconObject.src = '/breakout-rooms/breakout-room-ar/role-icons/developer.png';
     } else if (params.role.toLowerCase() === 'designer') {
-        iconObject.src = '/breakout-room-ar/role-icons/designer.png';
+        iconObject.src = '/breakout-rooms/breakout-room-ar/role-icons/designer.png';
     } else if (params.role.toLowerCase() === 'industry') {
-        iconObject.src = '/breakout-room-ar/role-icons/industry.png';
+        iconObject.src = '/breakout-rooms/breakout-room-ar/role-icons/industry.png';
     } else {
-        iconObject.src = '/breakout-room-ar/role-icons/other.png';
+        iconObject.src = '/breakout-rooms/breakout-room-ar/role-icons/other.png';
     }
 
     // restore context
