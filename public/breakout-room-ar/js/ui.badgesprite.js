@@ -109,23 +109,33 @@ UI.BadgeSprite.prototype.draw = function(params) {
       }
     //var x for text wrapText function
     var x = (width - 500) / 2;
+    var lnHeight = 25;
 
+    //vars for text write params
+    var textSize = 20;
+    var xValueIndent = 30;
+
+    //Write title
+    var lineLength = params.headLine.length;
+    var titleCenter = (width - lineLength)/4;
+    console.log("titlecenter " + titleCenter);
+    writeText(params.headLine, titleCenter, 100, textSize, 'normal');
     // Write firstEvent
-    writeText(params.firstEvent, 30, 120, 20, 'normal');
+    writeText(params.firstEvent, xValueIndent, 120, textSize, 'normal');
     // write secondEvent
-    writeText(params.secondEvent, 30, 160, 20, 'normal');
+    writeText(params.secondEvent, xValueIndent, 160, textSize, 'normal');
     // write thirdEvent
-    writeText(params.thirdEvent, 30, 200, 20, 'normal');
+    writeText(params.thirdEvent, xValueIndent, 200, textSize, 'normal');
     // write thirdDescription
-    wrapText(context, params.thirdDescription, x, 230, width, 25);
+    wrapText(context, params.thirdDescription, x, 230, width, lnHeight);
     // write fourthEvent
-    writeText(params.fourthEvent, 30, 300, 20, 'normal');
+    writeText(params.fourthEvent, xValueIndent, 300, textSize, 'normal');
     // write fourthDescription
-    wrapText(context, params.fourthDescription, x, 330, width, 25);
+    wrapText(context, params.fourthDescription, x, 330, width, lnHeight);
     // write fifthEvent
-    writeText(params.fifthEvent, 30, 420, 20, 'normal');
+    writeText(params.fifthEvent, xValueIndent, 420, textSize, 'normal');
     // write fifthDescription
-    wrapText(context, params.fifthDescription, x, 450, width, 25);
+    wrapText(context, params.fifthDescription, x, 450, width, lnHeight);
 
     // Write role label
     //writeText(params.role, 270, 215, 35, 'bold');

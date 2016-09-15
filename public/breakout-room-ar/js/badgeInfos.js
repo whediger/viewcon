@@ -15,6 +15,7 @@ var badgeInfos = [
 		avatar	        : 'breakout-room-ar/images/galvanize-logo.svg',
 	},
 	{
+		headLine: "Hiring Day - Thursday, September 22, 2016",
 		firstEvent: '9:00 AM: Breakfast',
 		secondEvent: '9:30 AM: Welcome and Company Introductions',
 		thirdEvent: '10:15 AM: Capstone Project Presentations',
@@ -22,10 +23,10 @@ var badgeInfos = [
 		fourthEvent: "11:45 AM: Networking Lunch",
 		fourthDescription: "Connect with the graduates in a less formal setting and learn more about their projects and backgrounds. You'll also have the opportunity to ask any questions of the staff.",
 		fifthEvent: "12:30 PM: Micro-Interviews",
-		fifthDescription: "In the afternoon, you'll meet each of the graduates in turn. Learn more about their projects, technical skills, and backgrounds. Interviews are 7 minutes long, which is just enough time to decide whether you're interested in continuing the conversation. ",
+		fifthDescription: "In the afternoon, you'll meet each of the graduates in turn. Learn more about their projects, technical skills, and backgrounds. Interviews are 7 minutes long, which is just enough time to decide whether you're interested in continuing the conversation.",
 		role: 'developer',
 		markerId: 265,
-		avatar: 'breakout-room-ar/images/galvanize-logo.svg',
+		avatar: 'breakout-room-ar/images/galvanize-logo.svg'
 	},
 ]
 //remove: for event example see:

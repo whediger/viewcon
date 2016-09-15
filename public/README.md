@@ -20,6 +20,9 @@
   * test results: Apple is no go. Some Androids do not work.
 4. (X)create Angular framework for admin site
 5. (X)integrate twillio to get web address
+5. add the date to the header
+5. move the content down
 6. integrate Database
+6. create more pages
 7. design admin screens
 8. create admin screens
