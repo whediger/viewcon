@@ -33,6 +33,7 @@ An app to gennerate markers was also created: [my other repo for the marker] htt
 * JavaScript (canvas)
 * Aruco
 * THREE.js
+* Twilio - twiml, simple xml used to handle text messages
 * HTML5
 * CSS
 * Angular (marker maker)
