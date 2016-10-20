@@ -7,7 +7,8 @@ I was not sure I could do. It is an augmented reality app that could be useful a
 A marker could be placed outside of each breakout room and information could be updated remotely
 or changed depending on the user. 
 
-In the making of the app I tried several technologies and settled on one that works on the internet. 
+In the making of the app I tried several technologies and settled on one that works on the internet.
+* The central idea is beauty in simplicity for the user.
 The idea is that users will not have to download any content, making it a non-invasive technology.
 For added convenience I used a phone number rather than a url. because phone numbers are easier to remember.
 The user sends a text message and then receives a message with a link to the app. the user then clicks the link
@@ -22,10 +23,16 @@ the marker is replaced with relevant information.
 2. click the link and approve camera use
 3. view following image through camera
 
-![alt text](https://cloud.githubusercontent.com/assets/4742517/19575076/2001f20c-96ca-11e6-8dca-cb65d7f02bc8.png "Marker ")
-https://cloud.githubusercontent.com/assets/4742517/19575076/2001f20c-96ca-11e6-8dca-cb65d7f02bc8.png
+![alt text](https://cloud.githubusercontent.com/assets/4742517/19575076/2001f20c-96ca-11e6-8dca-cb65d7f02bc8.png "Marker 265 for demo")
 
 
 ## Technologies
 
 An app to gennerate markers was also created: [my other repo for the marker] https://github.com/whediger/aruco-marker
+
+* JavaScript (canvas)
+* Aruco
+* THREE.js
+* HTML5
+* CSS
+* Angular (marker maker)
